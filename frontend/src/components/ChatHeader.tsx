@@ -1,10 +1,12 @@
 import { X } from "lucide-react";
 import avatarImage from "./../assets/avatar.png"
+import { useAppSelector } from "../store/hooks";
 // import { useAuthStore } from "../store/useAuthStore";
 // import { useChatStore } from "../store/useChatStore";
 
 const ChatHeader = () => {
   // const { selectedUser, setSelectedUser } = useChatStore();
+  const {chatUsers,selectedUser} = useAppSelector(state => state.auth)
   // const { onlineUsers } = useAuthStore();
 
   return (
@@ -22,7 +24,7 @@ const ChatHeader = () => {
           {/* User info */}
           <div>
             {/* <h3 className="font-medium">{selectedUser.fullName}</h3> */}
-            <h3 className="font-medium">Aung Aung Zin</h3>
+            <h3 className="font-medium">{chatUsers.find(user => user._id === selectedUser)?.fullName}</h3>
             <p className="text-sm text-base-content/70">
               {/* {onlineUsers.includes(selectedUser._id) ? "Online" : "Offline"} */}
               Online

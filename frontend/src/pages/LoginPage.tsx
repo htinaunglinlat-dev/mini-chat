@@ -5,16 +5,16 @@ import { Loader2, Lock, Mail } from "lucide-react";
 import InputField from "../components/InputField";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { login } from "../store/features/authSlice";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 
 const LoginPage = () => {
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("user001@gmail.com")
+  const [password, setPassword] = useState("hello123")
 
   const dispatch = useAppDispatch()
-  const {isLoading, errorMessage, authUser} = useAppSelector(state => state.auth)
+  const {status, errorMessage, authUser} = useAppSelector(state => state.auth)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,10 +22,10 @@ const LoginPage = () => {
   };
 
   useEffect(() => {
-    console.log(errorMessage)
-    if(errorMessage) toast.error(errorMessage || "unknown error")
+    // console.log(errorMessage)
+    // if(errorMessage) toast.error(errorMessage)
     if(authUser) navigate('/')
-  }, [errorMessage])
+  }, [errorMessage, authUser])
 
   return (
     <div className="min-h-screen flex justify-center items-center">
@@ -62,7 +62,7 @@ const LoginPage = () => {
           />
 
           <button type="submit" className="btn btn-primary w-full" > {/* disabled={isLoggingIn}> */} 
-            {isLoading ? (
+            {status === "loggingIn" ? (
               <>
                 <Loader2 className="h-5 w-5 animate-spin" />
                 Loading...

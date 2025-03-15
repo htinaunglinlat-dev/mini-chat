@@ -1,12 +1,14 @@
 import { Link } from "react-router";
 // import { useAuthStore } from "../store/useAuthStore";
-import { LogOut, LucideProps, MessageSquare, Settings, User } from "lucide-react";
+import { Loader2, LogOut, LucideProps, MessageSquare, Settings, User } from "lucide-react";
 import * as motion from 'motion/react-client'
-import { useAppSelector } from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { logout } from "../store/features/authSlice";
 
 const Navbar = () => {
   // const { logout, authUser } = useAuthStore();
-  const {authUser} = useAppSelector(state => state.auth)
+  const {authUser, status} = useAppSelector(state => state.auth)
+  const dispatch = useAppDispatch()
 
   return (
     <header
@@ -38,7 +40,7 @@ const Navbar = () => {
               <>
                 <NavButton path="/profile"  Icon={User}>Profile</NavButton>
 
-                <button className="btn flex gap-2 items-center">
+                <button className="btn flex gap-2 items-center" onClick={() => dispatch(logout())}>
                   <LogOut className="size-5" />
                   <span className="hidden sm:inline">Logout</span>
                 </button>
@@ -48,6 +50,9 @@ const Navbar = () => {
 
         </div>
       </div>
+      {
+        status === "loggingOut" && <div className="w-full h-screen bg-slate-900/60 fixed top-0 left-0 flex justify-center items-center"><Loader2 className="animate-spin size-10 mr-4" />Logging out</div>
+      }
     </header>
   );
 };

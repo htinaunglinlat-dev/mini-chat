@@ -1,19 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { useAuthStore } from "../store/useAuthStore";
-import { Lock, Mail, User } from "lucide-react"; // Loader2
-import { Link } from "react-router";
+import { Loader2, Lock, Mail, User } from "lucide-react"; // Loader2
+import { Link, useNavigate } from "react-router";
 
 import toast from "react-hot-toast";
 import InputField from "../components/InputField";
 import PasswordStrengthMetre from "../components/PasswordStrengthMetre";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { signup } from "../store/features/authSlice";
 
 const SignUpPage = () => {
+  const navigate = useNavigate()
+  const dispatch = useAppDispatch() 
+  const {authUser, status} = useAppSelector(state => state.auth)
+
   const [showPassword, setShowPassword] = useState(true);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    if(authUser) navigate("/")
+  })
 
   // const { signup, isSigningUp } = useAuthStore();
 
@@ -33,7 +43,7 @@ const SignUpPage = () => {
     const success = validateForm();
     console.log(success)
 
-    // if (success === true) signup(formData);
+    if (success === true) dispatch(signup(formData))
   };
 
   return (
@@ -80,17 +90,15 @@ const SignUpPage = () => {
             <PasswordStrengthMetre password={formData.password} />
 
 
-            <button type="submit" className="btn btn-primary w-full">
-              {/*  disabled={isSigningUp} */}
-              {/* {isSigningUp ? (
+            <button type="submit" className="btn btn-primary w-full" disabled={status === "singingUp" ? true : false}>
+              {status === "singingUp" ? (
                 <>
                   <Loader2 className="size-5 animate-spin" />
                   Loading...
                 </>
               ) : (
                 "Create Account"
-              )} */}
-              Create Account
+              )}
             </button>
           </form>
 

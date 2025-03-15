@@ -26,10 +26,13 @@ export const signup = async(req, res) => {
       password: hashedPassword,
       profilePic
     })
+    console.log(newUser)
     generateTokenAndSetCookie(newUser._id, res)
 
+    console.log('pass 1')
     await newUser.save()
-
+    console.log('pass 1')
+    
     return res.status(200).json(successResponse("new user have been successfully created", {
       _id: newUser._id,
       fullName: newUser.fullName,
