@@ -40,7 +40,7 @@ const Sidebar = () => {
   if(status === "fetchingUsers") return <SidebarSkeleton />
 
   return (
-    <aside className={`h-full sm:w-20 lg:w-72 border-r border-base-300 overflow-hidden flex flex-col transition-all duration-200 sm:hover:w-56 z-1 ${selectedUser ? "w-0" : "w-screen"}`}>
+    <aside className={`h-full sm:w-20 lg:w-72 border-r border-base-300 overflow-hidden flex flex-col transition-all duration-200 sm:hover:w-56 lg:hover:w-72 z-1 ${selectedUser ? "w-0" : "w-screen"}`}>
       <div className="border-b border-base-300 w-full p-5">
         <div className="flex items-center gap-2">
           <Users className="size-6" />
