@@ -36,11 +36,14 @@ app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
 
 // for deployment
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
+if(process.env.NODE_ENV === "production"){
 
-app.get("*", (req, res) => {
-	res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
-});
+  app.use(express.static(path.join(__dirname, "..", "frontend/dist")));
+  
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "frontend", "dist", "index.html"));
+  });
+} 
 
 httpServer.listen(PORT, () => {
   connectDB()

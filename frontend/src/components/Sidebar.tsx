@@ -5,7 +5,7 @@ import SidebarSkeleton from "./skeletons/SidebarSkeleton";
 import { Users } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { getUsers, setOnlineUsers, setSelectedUser } from "../store/features/authSlice";
-import avatarImage from "./../assets/avatar.png"
+// import avatarImage from "./../assets/avatar.png"
 import { getSocket } from "../socket";
 
 const Sidebar = () => {
@@ -78,7 +78,7 @@ const Sidebar = () => {
             <div className="relative mx-auto lg:mx-0">
               <img
                 title={user.fullName}
-                src={avatarImage}
+                src={"https://thumbs.dreamstime.com/b/surprised-girl-gift-box-her-hands-d-render-291577881.jpg"}
                 alt={user.fullName}
                 className="size-12 object-cover rounded-full"
               />

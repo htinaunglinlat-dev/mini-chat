@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import avatarImage from "./../assets/avatar.png"
+// import avatarImage from "./../assets/avatar.png"
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { setSelectedUser } from "../store/features/authSlice";
 // import { useAuthStore } from "../store/useAuthStore";
@@ -18,7 +18,7 @@ const ChatHeader = () => {
           <div className="avatar">
             <div className="size-10 rounded-full relative">
               {/* <img src={selectedUser.profilePic || "/avatar.png"} alt={selectedUser.fullName} /> */}
-              <img src={avatarImage} alt="" />
+              <img src={"https://thumbs.dreamstime.com/b/surprised-girl-gift-box-her-hands-d-render-291577881.jpg"} alt="" />
             </div>
           </div>
 

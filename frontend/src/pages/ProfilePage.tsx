@@ -3,7 +3,7 @@
 import { Camera, CircleArrowLeft, Mail, User } from "lucide-react";
 import {Link} from 'react-router'
 
-import avatarImage from './../assets/avatar.png'
+// import avatarImage from './../assets/avatar.png'
 import { useAppSelector } from "../store/hooks";
 
 const ProfilePage = () => {
@@ -45,7 +45,7 @@ const ProfilePage = () => {
               <div className="relative">
                 <img
                   // src={selectedImg || authUser.profilePic || "/avatar.png"}
-                  src={authUser?.profilePic || avatarImage}
+                  src={authUser?.profilePic || "https://thumbs.dreamstime.com/b/surprised-girl-gift-box-her-hands-d-render-291577881.jpg"}
                   alt="Profile"
                   className="size-32 rounded-full object-cover border-4 "
                 />

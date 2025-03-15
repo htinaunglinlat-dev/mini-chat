@@ -6,7 +6,7 @@ import MessageInput from "./MessageInput";
 import MessageSkeleton from "./skeletons/MessageSkeleton";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { fetchMessage } from "../store/features/messageSlice";
-import avatarImage from "./../assets/avatar.png"
+// import avatarImage from "./../assets/avatar.png"
 import { MessageCircle } from "lucide-react";
 // import { useAuthStore } from "../store/useAuthStore";
 // import { formatMessageTime } from "../lib/utils";
@@ -84,7 +84,7 @@ const ChatContainer = () => {
                         //     ? authUser.profilePic || "/avatar.png"
                         //     : selectedUser?.profilePic || "/avatar.png"
                         // }
-                        src={avatarImage}
+                        src={"https://thumbs.dreamstime.com/b/surprised-girl-gift-box-her-hands-d-render-291577881.jpg"}
                         alt="profile pic"
                       />
                     </div>
