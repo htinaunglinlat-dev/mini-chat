@@ -3,7 +3,7 @@ import {Navbar} from "./components/index.ts";
 import {HomePage, SignUpPage, LoginPage, ProfilePage} from "./pages/index.ts"
 // import SettingsPage from "./pages/SettingsPage";
 
-import { Routes, Route, Navigate } from "react-router";
+import { Routes, Route } from "react-router";
 
 
 import { Toaster } from "react-hot-toast";

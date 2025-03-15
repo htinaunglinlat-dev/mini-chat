@@ -14,7 +14,7 @@ const HomePage = () => {
   // const { selectedUser } = useChatStore();
   // const { authUser, checkAuth, isCheckingAuth, onlineUsers } = useAuthStore();
   const dispatch = useAppDispatch()
-  const {status, authUser, errorMessage, chatUsers, selectedUser} = useAppSelector(state => state.auth)
+  const {status, authUser, chatUsers, selectedUser} = useAppSelector(state => state.auth)
   // const { theme } = useThemeStore();
 
   console.log("chat-users", { chatUsers });

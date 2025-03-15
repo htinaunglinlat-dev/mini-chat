@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 // import { useAuthStore } from "../store/useAuthStore";
-import { Loader2, LogOut, LucideProps, MessageSquare, Settings, User } from "lucide-react";
+import { Loader2, LogOut, LucideProps, MessageSquare, User } from "lucide-react";
 import * as motion from 'motion/react-client'
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { logout } from "../store/features/authSlice";

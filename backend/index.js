@@ -16,7 +16,7 @@ import {app, httpServer} from './socket/socket.js'
 
 dotenv.config()
 
-const __dirname1 = dirname(fileURLToPath(import.meta.url))
+const __dirname = dirname(fileURLToPath(import.meta.url))
 // D:\__NCC__\web-socket\mini-chat-application\backend
 
 const __dirname2 = path.resolve()
@@ -36,11 +36,11 @@ app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
 
 // for deployment
-// app.use(express.static(path.join(__dirname, "/frontend/dist")));
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-// app.get("*", (req, res) => {
-// 	res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
-// });
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
 
 httpServer.listen(PORT, () => {
   connectDB()
