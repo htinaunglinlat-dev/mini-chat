@@ -33,7 +33,7 @@ const Navbar = () => {
           {/* Nav Button Lists - Right side */}
           <div className="flex items-center gap-2">
 
-            <NavButton path="/settings" Icon={Settings}>Settings</NavButton>
+            {/* <NavButton path="/settings" Icon={Settings}>Settings</NavButton> */}
 
             {/* {authUser && ( */}
             {authUser && (

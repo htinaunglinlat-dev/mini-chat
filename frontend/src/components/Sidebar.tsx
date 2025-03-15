@@ -19,12 +19,15 @@ const Sidebar = () => {
 
   useEffect(() => {
     dispatch(getUsers())
-    if(isSocketConnected) {
+    // if(isSocketConnected) {
       const socket = getSocket()
       socket?.on('getOnlineUsers', (userIds) => {
         console.log("userIds", userIds)
         dispatch(setOnlineUsers(Array.isArray(userIds) ? userIds : []))
       })
+    // }
+    return () => {
+      socket?.off("getOnlineUsers")
     }
   }, [getUsers, isSocketConnected]);
 
@@ -45,7 +48,7 @@ const Sidebar = () => {
         </div>
         {/* TODO: Online filter toggle */}
         <div className="mt-3 hidden lg:flex items-center gap-2">
-          <label className="cursor-pointer flex items-center gap-2">
+          {/* <label className="cursor-pointer flex items-center gap-2">
             <input
               type="checkbox"
               checked={showOnlineOnly}
@@ -53,8 +56,9 @@ const Sidebar = () => {
               className="checkbox checkbox-sm"
             />
             <span className="text-sm">Show online only</span>
-          </label>
-          <span className="text-xs text-zinc-500">(
+          </label> */}
+          <h1>Active Users :</h1>
+          <span className={`text-base ${onlineUsers.length ? 'text-green-500' : 'text-zinc-500'}`}>(
             {onlineUsers.length ? onlineUsers.length-1 : 0} online
           )</span>
         </div>
@@ -73,6 +77,7 @@ const Sidebar = () => {
           >
             <div className="relative mx-auto lg:mx-0">
               <img
+                title={user.fullName}
                 src={avatarImage}
                 alt={user.fullName}
                 className="size-12 object-cover rounded-full"
@@ -86,7 +91,7 @@ const Sidebar = () => {
             </div>
 
             {/* User info - only visible on larger screens */}
-            <div className="block text-left min-w-0">
+            <div className="text-left min-w-0 hidden lg:block">
               <div className="font-medium truncate">{user.fullName}</div>
               <div className="text-sm text-zinc-400">
                 {onlineUsers?.includes(user._id) ? "Online" : "Offline"}

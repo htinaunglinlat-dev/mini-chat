@@ -4,13 +4,11 @@
 // import { useThemeStore } from "./store/useThemeStore";
 
 import {Sidebar, NoChatSelected, ChatContainer} from "../components/index"
-import { Loader2, Users } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { checkAuth } from "../store/features/authSlice";
 import { useEffect } from "react";
 import LoginOrSignup from "../components/LoginOrSignup";
-import toast from "react-hot-toast";
-import { div } from "motion/react-client";
 
 const HomePage = () => {
   // const { selectedUser } = useChatStore();
