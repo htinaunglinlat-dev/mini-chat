@@ -8,7 +8,7 @@ const app = express()
 const httpServer = http.createServer(app)
 const io = new Server(httpServer, {
   cors: {
-    origin: ["https://mini-chat-app-yvi3.onrender.com/"],
+    origin: ["http://localhost:5173"],
     methods: ['POST', 'GET']
   }
 })

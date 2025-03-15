@@ -23,7 +23,7 @@ interface ResponseModel {
 }
 
 interface MessageSliceState {
-  status: "fetchingMessages" | "idle" | "error" | "sendingMessage"
+  status: "fetchingMessages" | "idle" | "error" | "sendingMessage" 
   errorMessage: string | null,
   messages: MessageType[]
 }
@@ -85,7 +85,6 @@ export const messageSlice = createSlice({
     // get all messages
     builder
     .addCase(fetchMessage.pending, (state) => {
-      state.messages = []
       state.status = "fetchingMessages"
       state.errorMessage = null
     })

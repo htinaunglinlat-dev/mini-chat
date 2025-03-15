@@ -49,13 +49,13 @@ const HomePage = () => {
   }
 
   return (
-    <div className="h-screen bg-base-200">
+    <div className="h-screen bg-base-200 pt-16 md:pt-0">
       <div className="flex items-center justify-center md:pt-20 md:px-4">
-        <div className="bg-base-100 rounded-lg w-full shadow-lg md:max-w-7xl h-screen lg:h-[calc(100vh-8rem)]">
+        <div className="bg-base-100 rounded-lg w-full shadow-lg md:max-w-7xl h-[calc(100vh-4rem)] lg:h-[calc(100vh-8rem)]">
           <div className="flex h-full rounded-lg overflow-hidden">
 
             {/* side bar - left side */}
-            <div className="h-full w-20 lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200">
+            <div className="h-full border-r border-base-300 flex flex-col transition-all duration-200">
               {/* Header */}
               {/* <div className="border-b border-base-300 w-full p-5">
                 <div className="flex items-center gap-2">
