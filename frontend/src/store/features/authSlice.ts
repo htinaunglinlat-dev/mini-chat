@@ -23,7 +23,7 @@ export interface ResponseModel {
 export const checkAuth = createAsyncThunk<UserInfo, void, { rejectValue: string }>("auth/checkAuth",
   async (_, {rejectWithValue, dispatch}) => {
   try{
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    // await new Promise(resolve => setTimeout(resolve, 2000))
     const response = await axiosInstance.get("/auth/checkAuth")
     const responseModel: ResponseModel = response.data
 
@@ -44,7 +44,7 @@ export const signup =  createAsyncThunk<UserInfo, {fullName: string, email: stri
   async (data, { rejectWithValue, dispatch }) => {
     console.log(data)
     try{  
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      // await new Promise(resolve => setTimeout(resolve, 2000))
       const response = await axiosInstance.post("/auth/signup",{
         fullName: data.fullName,
         email: data.email,
@@ -69,7 +69,7 @@ export const signup =  createAsyncThunk<UserInfo, {fullName: string, email: stri
 export const login = createAsyncThunk<UserInfo, {email: string, password: string}, {rejectValue: string}>("auth/login", 
   async(data, {rejectWithValue, dispatch }) => {
     try{
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      // await new Promise(resolve => setTimeout(resolve, 2000))
       const response = await axiosInstance.post("/auth/login", {
         email: data.email,
         password: data.password
@@ -93,7 +93,7 @@ export const login = createAsyncThunk<UserInfo, {email: string, password: string
 export const logout = createAsyncThunk<void, void, {rejectValue: string}>("auth/logout",
   async(_, {rejectWithValue, dispatch}) => {
     try{
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      // await new Promise(resolve => setTimeout(resolve, 2000))
       const response = await axiosInstance.post("/auth/logout")
       const responseModel: ResponseModel = response.data
 
@@ -111,7 +111,7 @@ export const logout = createAsyncThunk<void, void, {rejectValue: string}>("auth/
 export const getUsers = createAsyncThunk<ChatUserType[], void, {rejectValue: string}>("auth/getUsers", 
   async(_, {rejectWithValue}) => {
     try{
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      // await new Promise(resolve => setTimeout(resolve, 2000))
       const response = await axiosInstance.get("/users")
       const responseModel: ResponseModel = response.data
       if(responseModel.success === false) {
